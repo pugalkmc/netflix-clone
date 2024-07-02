@@ -2,7 +2,7 @@
 This is a full-stack Netflix clone application built with the MERN stack (MongoDB, Express.js, React.js, Node.js). The application allows users to browse movies, view details, and manage their profile.
 
 ## Demo
-The application is deployed and can be accessed at: [https://nutplix.vercel.app/](https://nutplix.vercel.app/)
+The application is deployed and can be accessed at: <a href="https://nutplix.vercel.app/" target="_blank">https://nutplix.vercel.app</a>
 
 ## Repository
 The source code is available on GitHub: [Netflix Clone](https://github.com/pugalkmc/netflix-clone.git)
