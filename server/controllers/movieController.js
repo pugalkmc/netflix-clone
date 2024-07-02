@@ -1,11 +1,8 @@
-// controllers/movieController.js
-
 import Movie from '../models/Movie.js';
 
 // Get all movies
 const getAllMovies = async (req, res) => {
   try {
-    // Fetch all movies from database
     const movies = await Movie.find();
     res.json(movies);
   } catch (err) {
@@ -19,7 +16,6 @@ const getMovieById = async (req, res) => {
   const { id } = req.params;
 
   try {
-    // Fetch movie by ID from database
     const movie = await Movie.findById(id);
 
     if (!movie) {
@@ -38,7 +34,6 @@ const createMovie = async (req, res) => {
   const { title, genre, year } = req.body;
 
   try {
-    // Create new movie instance
     const newMovie = new Movie({
       title,
       genre,
@@ -46,7 +41,6 @@ const createMovie = async (req, res) => {
       // Additional fields can be added here
     });
 
-    // Save movie to database
     await newMovie.save();
 
     res.json({ message: 'Movie created successfully', movie: newMovie });
@@ -62,19 +56,16 @@ const updateMovie = async (req, res) => {
   const { title, genre, year } = req.body;
 
   try {
-    // Find movie by ID and update
     let movie = await Movie.findById(id);
 
     if (!movie) {
       return res.status(404).json({ message: 'Movie not found' });
     }
 
-    // Update movie fields
     movie.title = title;
     movie.genre = genre;
     movie.year = year;
 
-    // Save updated movie to database
     await movie.save();
 
     res.json({ message: 'Movie updated successfully', movie });
@@ -89,7 +80,6 @@ const deleteMovie = async (req, res) => {
   const { id } = req.params;
 
   try {
-    // Find movie by ID and delete
     let movie = await Movie.findById(id);
 
     if (!movie) {

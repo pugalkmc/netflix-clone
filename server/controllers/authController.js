@@ -3,7 +3,7 @@
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import User from '../models/User.js';
-import JWT_SECRET from '../config.js'
+import { JWT_SECRET } from '../config.js'
 
 const register = async (req, res) => {
   const { username, email, password } = req.body;
@@ -19,6 +19,7 @@ const register = async (req, res) => {
     const token = jwt.sign({ id: user._id, isAdmin: user.isAdmin }, JWT_SECRET, { expiresIn: '1h' });
     res.status(201).json({ token });
   } catch (error) {
+    console.log(error)
     res.status(500).json({ message: 'Server error' });
   }
 };

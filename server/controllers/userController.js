@@ -2,7 +2,7 @@
 // controllers/userController.js
 
 import User from '../models/User.js';
-import bcrypt from 'bcryptjs'; // For hashing passwords
+import bcrypt from 'bcryptjs';
 
 // Fetch user profile based on req.user (from auth middleware)
 const getProfile = async (req, res) => {
